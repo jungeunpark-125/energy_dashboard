@@ -1,6 +1,6 @@
 """공공데이터포털(apis.data.go.kr)의 한국전력거래소 API 호출과 응답 읽기.
 
-세 API 모두 응답이 header / body(items → item) 구조이고, dataType 에 따라 JSON 또는 XML 로 온다.
+응답은 header / body(items → item) 구조이고, dataType 에 따라 JSON 또는 XML 로 온다.
 어느 쪽이 와도 같은 모양(dict 목록)으로 돌려준다.
 
 인증키는 환경변수 KPX_API_KEY 에서 읽는다. 코드·로그에 키를 남기지 않도록
@@ -16,8 +16,6 @@ import requests
 
 BASE = "https://apis.data.go.kr/B552115"
 URL_TODAY = f"{BASE}/Sukub5mToday/getSukub5mToday"                      # 오늘 5분 단위 전력수급 (XML)
-URL_NOW = f"{BASE}/sukub5mMaxDatetime2/getSukub5mMaxDatetime2"          # 현재 전력수급 (JSON · XML)
-URL_TRADING = f"{BASE}/PowerTradingResultInfo1/getPowerTradingResultInfo1"  # 연료원별 전력거래실적 (JSON · XML)
 
 
 class ApiError(RuntimeError):

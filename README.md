@@ -14,13 +14,12 @@
 ## 쓰는 API (공공데이터포털 · 한국전력거래소, 이용허락범위 제한 없음)
 
 | | 오늘전력수급현황조회_GW (메인) | 현재전력수급현황조회_GW (맛보기) | 전력거래실적 (심화) |
-|---|---|---|---|
-| 상세 페이지 | [15158703](https://www.data.go.kr/data/15158703/openapi.do) | [15158704](https://www.data.go.kr/data/15158704/openapi.do) | [15099766](https://www.data.go.kr/data/15099766/openapi.do) |
-| 주소 | `apis.data.go.kr/B552115/Sukub5mToday/getSukub5mToday` | `apis.data.go.kr/B552115/sukub5mMaxDatetime2/getSukub5mMaxDatetime2` | `apis.data.go.kr/B552115/PowerTradingResultInfo1/getPowerTradingResultInfo1` |
-| 돌려주는 것 | 오늘 0시부터 지금까지 5분 단위 | 가장 최근 5분 한 건 | 하루·연료원·시간별 설비용량(MW)과 전력거래량(MWh), 약 2개월 전까지 |
-| 형식 | XML | JSON · XML | JSON · XML |
-| 요청변수 | `serviceKey` `dataType` `pageNo` `numOfRows` | `serviceKey` `dataType` | `serviceKey` `dataType` `pageNo` `numOfRows` `tradeDay`(YYYYMMDD) |
-| 쓰는 곳 | 노트북 Part 2~6, `fetch_today.py` | 노트북 Part 1 | 노트북 Part 7 (선택) |
+|---|---|
+| 상세 페이지 | [15158703](https://www.data.go.kr/data/15158703/openapi.do) |
+| 주소 | `apis.data.go.kr/B552115/Sukub5mToday/getSukub5mToday` | 
+| 돌려주는 것 | 오늘 0시부터 지금까지 5분 단위 | 
+| 형식 | XML | 
+| 요청변수 | `serviceKey` `dataType` `pageNo` `numOfRows` |
 
 * 응답 항목(수급 2종): `baseDatetime` 기준일시 · `currPwrTot` 현재수요 · `suppAbility` 공급능력 · `forecastLoad` 최대예측수요 · `suppReservePwr` 공급예비력 · `suppReserveRate` 공급예비율(%) · `operReservePwr` 운영예비력 · `operReserveRate` 운영예비율(%). 단위는 MW.
 * 개발계정은 자동 승인, **하루 100회** 호출 한도입니다.

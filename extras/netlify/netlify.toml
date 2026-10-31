@@ -1,0 +1,9 @@
+# Netlify는 계산하지 않고 site/ 폴더의 파일만 보관해서 나눠준다.
+[build]
+  publish = "site"
+
+# 데이터 파일은 매일 바뀌므로 브라우저가 오래된 사본을 쓰지 않게 한다.
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
